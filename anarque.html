@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails sur l’arnaque</title>
+    <link rel="stylesheet" href="arnaque.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Détails sur l’arnaque</h2>
+        <form action="fraude.php" method="post">
+            <label for="platform">Nom de la plateforme ou de la personne impliquée :</label>
+            <input type="text" id="platform" name="platform" required>
+
+            <label for="amount">Montant total perdu :</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="payment_method">Mode de paiement utilisé :</label>
+            <select id="payment_method" name="payment_method" required>
+                <option value="Virement bancaire">Virement bancaire</option>
+                <option value="Carte bancaire">Carte bancaire</option>
+                <option value="Crypto-monnaie">Crypto-monnaie</option>
+                <option value="PayPal">PayPal</option>
+                <option value="Western Union">Western Union</option>
+                <option value="Autre">Autre</option>
+            </select>
+
+            <label for="contract">Avez-vous signé un contrat ou reçu des documents de cette entité ?</label>
+            <select id="contract" name="contract" required>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
+            </select>
+
+            <label for="contacted">Avez-vous essayé de contacter l’entreprise ou la personne concernée après la perte de vos fonds ?</label>
+            <select id="contacted" name="contacted" required>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
+            </select>
+            <textarea id="contact_details" name="contact_details" rows="3" placeholder="Précisez les détails"></textarea>
+
+            <label for="reported">Avez-vous signalé cette fraude à une banque, à la police ou à une autorité financière ?</label>
+            <select id="reported" name="reported" required>
+                <option value="Oui">Oui</option>
+                <option value="Non">Non</option>
+            </select>
+            <textarea id="report_details" name="report_details" rows="3" placeholder="Précisez à qui"></textarea>
+
+            <div class="button-group">
+                <a href="chargement.html" class="btn primary">Envoyer</a>
+                <a href="formulaire.html" class="btn secondary">Retour</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

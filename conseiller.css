@@ -1,0 +1,78 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres et textes */
+h2 {
+    color: #dc3545;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Boîte de contact */
+.contact-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.contact-box h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Liens */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bouton */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #dc3545;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #b02a37;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}

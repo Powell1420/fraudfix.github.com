@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
+    <script>
+        // Configuration Firebase (remplace avec tes propres identifiants)
+        const firebaseConfig = {
+            apiKey: "VOTRE_API_KEY",
+            authDomain: "VOTRE_AUTH_DOMAIN",
+            projectId: "VOTRE_PROJECT_ID",
+            storageBucket: "VOTRE_STORAGE_BUCKET",
+            messagingSenderId: "VOTRE_MESSAGING_SENDER_ID",
+            appId: "VOTRE_APP_ID"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        
+        function validateEmail() {
+            const email = document.getElementById("email").value;
+            return firebase.auth().fetchSignInMethodsForEmail(email)
+                .then((methods) => {
+                    if (methods.length === 0) {
+                        alert("L'adresse email semble invalide ou inexistante.");
+                        return false;
+                    }
+                    return true;
+                })
+                .catch((error) => {
+                    alert("Erreur lors de la vérification de l'email : " + error.message);
+                    return false;
+                });
+        }
+
+        async function validateForm(event) {
+            event.preventDefault();
+            const emailValid = await validateEmail();
+            if (emailValid) {
+                window.location.href = "anarque.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulaire de Contact</h2>
+        <form onsubmit="validateForm(event)">
+            <label for="lastname">Nom :</label>
+            <input type="text" id="lastname" name="lastname" required>
+
+            <label for="firstname">Prénom :</label>
+            <input type="text" id="firstname" name="firstname" required>
+            
+            <label for="age">Âge :</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="address">Adresse :</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="phone">Numéro de téléphone :</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="job_status">Situation professionnelle :</label>
+            <select id="job_status" name="job_status" required>
+                <option value="">Sélectionner</option>
+                <option value="CDI">CDI</option>
+                <option value="CDD">CDD</option>
+                <option value="Indépendant">Indépendant</option>
+                <option value="Retraité">Retraité</option>
+                <option value="Sans emploi">Sans emploi</option>
+            </select>
+            
+            <label for="company">Nom de l'entreprise (si applicable) :</label>
+            <input type="text" id="company" name="company">
+            
+            <label for="income">Revenu mensuel approximatif :</label>
+            <input type="number" id="income" name="income">
+            
+            <label for="debt">Avez-vous d'autres prêts ou dettes en cours ?</label>
+            <select id="debt" name="debt" required>
+                <option value="">Sélectionner</option>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" placeholder="Votre message ici..."></textarea>
+
+            <div class="button-group">
+                <button type="submit" class="btn primary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
